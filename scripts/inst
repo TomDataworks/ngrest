@@ -80,7 +80,7 @@ rm -rf "$BUILD_DIR"
 if [ -z "${UPGRADE:-}" ]
 then
   test ! -e "$SRC_DIR" || mv "$SRC_DIR" "$SRC_DIR~$(date +%Y%m%d-%H%M%S)"
-  git clone https://github.com/loentar/ngrest.git
+  git clone https://github.com/TomDataworks/ngrest.git
 fi
 
 mkdir "$BUILD_DIR"

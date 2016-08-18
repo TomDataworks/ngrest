@@ -48,7 +48,7 @@ fi
 
 if [ -e "$NGREST_PACKAGES_DIR/packages" ]
 then
-  # loentar/ngrest-db:0.1
+  # TomDataworks/ngrest-db:0.1
   packages=($(<"$NGREST_PACKAGES_DIR/packages"))
   for p in ${packages[@]}
   do
@@ -236,9 +236,9 @@ Add a new ngrest extension package to the current project.
 'package_name' is formed from github url removing "http://github.com/".
 'args' are arguments passed to package.
 
-For example to add "https://github.com/loentar/ngrest-db" package with SQLite driver use:
+For example to add "https://github.com/TomDataworks/ngrest-db" package with SQLite driver use:
 
-  ngrest add loentar/ngrest-db sqlite
+  ngrest add TomDataworks/ngrest-db sqlite
 
 EOF
 }
