@@ -55,7 +55,7 @@ Node* HttpTransport::parseRequest(MemPool* pool, const Request* request)
     const Header* contentType = httpRequest->getHeader("content-type");
     NGREST_ASSERT(contentType, "Content-Type header is missing!");
 
-    if (!strcmp(contentType->value, "application/json")) {
+    if (!strncmp(contentType->value, "application/json", strlen("application/json"))) {
         // JSON request
         return json::JsonReader::read(httpRequest->body, pool);
     } else {
@@ -69,7 +69,7 @@ void HttpTransport::writeResponse(MemPool* pool, const Request* request, Respons
     const Header* contentType = httpRequest->getHeader("content-type");
 
     // response with JSON if no "content-type" header set
-    if (!contentType || !strcmp(contentType->value, "application/json")) {
+    if (!contentType || !strncmp(contentType->value, "application/json", strlen("application/json"))) {
         HttpResponse* httpResponse = static_cast<HttpResponse*>(response);
         Header* headerContentType = pool->alloc<Header>("Content-Type", "application/json");
         httpResponse->headers = headerContentType;
